@@ -8,7 +8,7 @@ interface TodoListProps {
 
 const TodoList = ({ todos, deleteTodo, toggleStatus }: TodoListProps) => {
   return (
-    <div>
+    <div className="mx-1">
       <span>Todos: {todos.length}</span>
       <ul className="flex flex-col">
         {todos.map((todo) => (

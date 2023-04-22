@@ -15,7 +15,7 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex mb-4">
+    <form onSubmit={handleSubmit} className="flex mx-1 mb-4">
       <input
         type="text"
         value={text}
