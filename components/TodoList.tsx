@@ -14,7 +14,7 @@ const TodoList = ({ todos, deleteTodo, toggleStatus }: TodoListProps) => {
         {todos.map((todo) => (
           <li
             key={todo.id}
-            className="flex p-1 items-center justify-between hover:bg-red-100">
+            className="flex p-2 items-center justify-between hover:bg-indigo-800 transition-colors duration-300">
             <span>{todo.text}</span>
             <div className="space-x-2">
               <button
