@@ -1,5 +1,5 @@
 import { Page } from "@/components/shared/layout/Page";
-import { TaskListPage } from "@/pages/tasks";
+import TaskListPage from "@/pages/tasks";
 
 import { prisma } from "@/prisma/globalPrismaClient";
 import { safeJson } from "@/utils/SafeJson";

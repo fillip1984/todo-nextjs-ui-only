@@ -78,4 +78,4 @@ const TaskListPage = ({
   );
 };
 
-export { TaskListPage };
+export default TaskListPage;
