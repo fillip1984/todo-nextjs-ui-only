@@ -1,5 +1,6 @@
 // import type { Tasks } from "@prisma/client";
 import { Icon } from "@/components/shared/icon";
+import { TaskDetail } from "@/components/task/TaskDetail";
 import { Prisma, Task } from "@prisma/client";
 // import { Task } from "@/components/task/TaskDetail";
 // import { Task } from "@prisma/client";
@@ -9,20 +10,20 @@ import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 interface TaskListPageProps {
-  // projectName: string;
-  // projectId: number;
-  // tasks: Task[];
-  project: Prisma.ProjectSelect;
+  projectId: number;
+  projectName: string;
+  tasks: Task[];
+  // project: Prisma.ProjectSelect;
   refreshData: () => void;
 }
 
 const TaskListPage = ({
-  project,
-  // projectId,
-  // projectName,
+  // project,
+  projectId,
+  projectName,
+  tasks,
   refreshData,
-}: // tasks,
-TaskListPageProps) => {
+}: TaskListPageProps) => {
   const {
     register,
     handleSubmit,
@@ -53,12 +54,12 @@ TaskListPageProps) => {
         <Icon name="Arrow" />
       </Link>
 
-      <h1>{project.name}</h1>
+      <h1>{projectName}</h1>
 
       {/* add tasks */}
       <form onSubmit={handleSubmit(onSubmit)} className="flex gap-5">
         <input type="text" {...register("name", { required: true })} />
-        {/* <input type="hidden" {...register("projectId")} value={project.id} /> */}
+        <input type="hidden" {...register("projectId")} value={projectId} />
         <div>
           <button
             type="submit"
@@ -70,11 +71,9 @@ TaskListPageProps) => {
       </form>
 
       {/* task list */}
-      {/* {project &&
-        project.Tasks &&
-        project.Tasks.map((task) => (
-          <TaskDetail key={task.id} task={task} refreshData={refreshData} />
-        ))} */}
+      {tasks.map((task) => (
+        <TaskDetail key={task.id} task={task} refreshData={refreshData} />
+      ))}
     </div>
   );
 };

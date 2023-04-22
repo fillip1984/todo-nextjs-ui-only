@@ -1,13 +1,13 @@
-import Head from "next/head";
-import TodoPage from "./TodoPage";
-import ProjectListPage from "./projects";
-import { Prisma } from "@prisma/client";
-import { useRouter } from "next/router";
-import { GetServerSideProps } from "next";
 import { prisma } from "@/prisma/globalPrismaClient";
+import { Project } from "@prisma/client";
+import { GetServerSideProps } from "next";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import ProjectListPage from "./projects";
 
 interface HomeProps {
-  projects: Prisma.ProjectSelect[];
+  // projects: Prisma.ProjectSelect[];
+  projects: Project[];
 }
 
 export default function Home({ projects }: HomeProps) {

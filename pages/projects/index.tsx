@@ -1,12 +1,13 @@
 import { ProjectDetail } from "@/components/project/ProjectDetail";
 import { Icon } from "@/components/shared/icon";
 import { Page } from "@/components/shared/layout/Page";
-import { Prisma, Project } from "@prisma/client";
+import { Project } from "@prisma/client";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 
 interface ProjectListPageProps {
-  projects: Prisma.ProjectSelect[];
+  // projects: Prisma.ProjectSelect[];
+  projects: Project[];
   refreshData: () => void;
 }
 

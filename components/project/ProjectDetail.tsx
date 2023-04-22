@@ -6,7 +6,8 @@ import { DeleteButton } from "../shared/DeleteButton";
 import { Icon } from "../shared/icon";
 
 interface ProjectDetailProps {
-  project: Prisma.ProjectSelect;
+  // project: Prisma.ProjectSelect;
+  project: Project;
   refreshData: () => void;
 }
 
@@ -76,7 +77,7 @@ const ProjectDetail = ({ project, refreshData }: ProjectDetailProps) => {
           className="flex justify-between items-center m-0 p-0 w-full relative -top-[18px] -mb-[30px]">
           <input
             type="text"
-            // TODO: fix this: defaultValue={project.name?.valueOf}
+            defaultValue={project.name}
             {...register("name", { required: true })}
             className="p-0 m-0 list-input flex-1 text-6xl font-bold text-white border-b border-dashed bg-transparent focus:outline-none"
           />

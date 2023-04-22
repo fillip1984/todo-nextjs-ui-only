@@ -3,17 +3,19 @@ import { TaskListPage } from "@/pages/tasks";
 
 import { prisma } from "@/prisma/globalPrismaClient";
 import { safeJson } from "@/utils/SafeJson";
-import { Prisma } from "@prisma/client";
+import { Project, Task } from "@prisma/client";
 
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
 interface Props {
-  project: Prisma.ProjectSelect;
+  // project: Prisma.ProjectSelect;
+  project: Project;
+  tasks: Task[];
 }
 
-const Tasks = ({ project }: Props) => {
+const Tasks = ({ project, tasks }: Props) => {
   const router = useRouter();
 
   const refreshData = () => {
@@ -35,10 +37,10 @@ const Tasks = ({ project }: Props) => {
 
       <Page>
         <TaskListPage
-          // projectName={project.name}
-          // projectId={project.id}
-          // tasks={project.Tasks}
-          project={project}
+          projectId={project.id}
+          projectName={project.name}
+          tasks={tasks}
+          // project={project}
           refreshData={refreshData}
         />
       </Page>
@@ -68,6 +70,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   project = safeJson(project);
 
   return {
-    props: { project: project },
+    props: { project, tasks: project?.Tasks },
   };
 };
