@@ -1,12 +1,8 @@
-// import type { Tasks } from "@prisma/client";
 import { Icon } from "@/components/shared/icon";
 import { TaskDetail } from "@/components/task/TaskDetail";
-import { Prisma, Task } from "@prisma/client";
-// import { Task } from "@/components/task/TaskDetail";
-// import { Task } from "@prisma/client";
+import { Task } from "@prisma/client";
+
 import Link from "next/link";
-// import { Icon } from "../shared/icon";
-// import { Task } from "./components/Task";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 interface TaskListPageProps {
@@ -71,7 +67,7 @@ const TaskListPage = ({
       </form>
 
       {/* task list */}
-      {tasks.map((task) => (
+      {tasks?.map((task) => (
         <TaskDetail key={task.id} task={task} refreshData={refreshData} />
       ))}
     </div>
