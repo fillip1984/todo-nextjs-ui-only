@@ -10,8 +10,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Todo {
-  id     Int    @id @default(autoincrement())
-  text   String
-  status String
+model Project {
+  id    Int     @id @default(autoincrement())
+  name  String
+  Tasks Tasks[]
+}
+
+model Tasks {
+  id                Int       @id @default(autoincrement())
+  name              String
+  text              String
+  completedDateTime DateTime?
+  order             Int?
+  status            String
+  project           Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId         Int
 }
