@@ -1,16 +1,17 @@
+import type { Project } from "@prisma/client";
 import type { GetServerSideProps } from "next";
-import type { Prisma } from "@prisma/client";
 import Head from "next/head";
 
-import { useRouter } from "next/router";
 import { prisma } from "@/prisma/globalPrismaClient";
+import { useRouter } from "next/router";
 import ProjectListPage from "../projects";
 
 interface Props {
-  projects: Prisma.ProjectSelect[];
+  // projects: Prisma.ProjectSelect[];
+  projects: Project[];
 }
 
-const Home = ({ projects }: Props) => {
+export const Home = ({ projects }: Props) => {
   const router = useRouter();
 
   const refreshData = () => {
