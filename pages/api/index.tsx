@@ -1,16 +1,16 @@
+import type { GetServerSideProps } from "next";
+import type { Prisma } from "@prisma/client";
 import Head from "next/head";
-import TodoPage from "./TodoPage";
-import ProjectListPage from "./projects";
-import { Prisma } from "@prisma/client";
-import { useRouter } from "next/router";
-import { GetServerSideProps } from "next";
-import { prisma } from "@/prisma/globalPrismaClient";
 
-interface HomeProps {
+import { useRouter } from "next/router";
+import { prisma } from "@/prisma/globalPrismaClient";
+import ProjectListPage from "../projects";
+
+interface Props {
   projects: Prisma.ProjectSelect[];
 }
 
-export default function Home({ projects }: HomeProps) {
+const Home = ({ projects }: Props) => {
   const router = useRouter();
 
   const refreshData = () => {
@@ -22,15 +22,20 @@ export default function Home({ projects }: HomeProps) {
   return (
     <>
       <Head>
-        <title>Todo</title>
-        <meta name="description" content="Todo Nextjs tutorial" />
+        <title>Projects | Task Glitter</title>
+        <meta
+          name="description"
+          content="Adding a little sparkle to your everyday to dos."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <ProjectListPage projects={projects} refreshData={refreshData} />
     </>
   );
-}
+};
+
+export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const projects = await prisma.project.findMany();

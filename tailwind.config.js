@@ -6,13 +6,35 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    backgroundImage: {
+      'bg': 'url("/images/bg.jpeg")',
+      'check': 'url(/images/check.svg)',
+      'stars1': 'url("/images/stars-1.png")',
+      'stars2': 'url("/images/stars-2.png")',
+      'triangle': 'url("/images/triangle.svg")',
+    },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        purple: '#4f00af',
+        electricIndigo: '#6b00f5',
+        lavenderIndigo: '#9444ff',
+        melrose: '#c0beff',
+        blueMoon: '#ebecff',
+        goldenTainoi: '#ffc854',
+        athensGray: '#eff0f7',
+        hawkesBlue: '#d9dbe9',
+        stormGray: '#6e7093',
+        white: '#ffffff',
+        violet: '#1B0D3D',
+        babyPink: '#EBC3C7',
+        lilacBush: '#997dd9',
+        persianBlue: '#6a00f8',
       },
     },
+    fontFamily: {
+      'sans': ['Poppins', 'sans-serif'],
+    }
+
   },
   plugins: [],
 }

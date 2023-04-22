@@ -1,17 +1,16 @@
-import { Todo } from "@/Types";
+// interface TodoListProps {
+//   todos: Todo[];
+//   deleteTodo: (id: number) => void;
+//   toggleStatus: (id: number) => void;
+// }
 
-interface TodoListProps {
-  todos: Todo[];
-  deleteTodo: (id: number) => void;
-  toggleStatus: (id: number) => void;
-}
-
-const TodoList = ({ todos, deleteTodo, toggleStatus }: TodoListProps) => {
+// const TodoList = ({ todos, deleteTodo, toggleStatus }: TodoListProps) => {
+const TodoList = () => {
   return (
     <div className="mx-1">
-      <span>Todos: {todos.length}</span>
+      {/* <span>Todos: {todos.length}</span> */}
       <ul className="flex flex-col">
-        {todos.map((todo) => (
+        {/* {todos.map((todo) => (
           <li
             key={todo.id}
             className="flex p-2 items-center justify-between hover:bg-indigo-800 transition-colors duration-300">
@@ -31,7 +30,7 @@ const TodoList = ({ todos, deleteTodo, toggleStatus }: TodoListProps) => {
               </button>
             </div>
           </li>
-        ))}
+        ))} */}
       </ul>
     </div>
   );

@@ -11,18 +11,18 @@ datasource db {
 }
 
 model Project {
-  id    Int     @id @default(autoincrement())
+  id    Int    @id @default(autoincrement())
   name  String
-  Tasks Tasks[]
+  Tasks Task[]
 }
 
-model Tasks {
+model Task {
   id                Int       @id @default(autoincrement())
   name              String
-  text              String
+  // text              String
   completedDateTime DateTime?
   order             Int?
-  status            String
+  // status            String
   project           Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
   projectId         Int
 }
